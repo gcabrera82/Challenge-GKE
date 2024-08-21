@@ -1,4 +1,4 @@
-name: Build and Push Docker Image new
+name: Build and Push Docker Image
 
 on:
   push:
@@ -12,10 +12,7 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-      with:
-        repository: gcabrera82/app-helloworld-py
-        token: ${{ secrets.GITHUB_TOKEN }}
-
+    
     - name: Set up Google Cloud SDK
       uses: google-github-actions/setup-gcloud@v1
       with:
