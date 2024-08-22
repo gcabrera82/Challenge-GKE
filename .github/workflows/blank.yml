@@ -18,16 +18,23 @@ jobs:
     - name: List files in the repo
       run: ls -al  # Verifica que el Dockerfile esté presente
 
+    - name: "Use gcloud CLI"
+      run: gcloud info
+      
     - name: Set up Google Cloud SDK
       uses: google-github-actions/setup-gcloud@v1
       with:
         project_id: ${{ secrets.GCP_PROJECT_ID }}
         service_account_key: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
         export_default_credentials: true
-
+    
+    - name: "Use gcloud CLI"
+      run: gcloud info
+      
     - name: Configure Docker to use gcloud as a credential helper
       run: |
-        gcloud auth configure-docker us-docker.pkg.dev
+        gcloud init
+        gcloud auth configure-docker us-central1-docker.pkg.dev
         
     - name: Build and push Docker image
       run: |
