@@ -1,4 +1,4 @@
-name: Build and Push Docker Image new
+name: Build and Push Docker Image new 2
 
 on:
   push:
