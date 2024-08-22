@@ -30,7 +30,6 @@ jobs:
       
     - name: Configure Docker to use gcloud as a credential helper
       run: |
-        gcloud auth login
         gcloud auth configure-docker us-east1-docker.pkg.dev
         
     - name: Build and push Docker image
