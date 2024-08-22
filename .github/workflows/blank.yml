@@ -13,7 +13,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
       with:
-        repository: gcabrera82/app-helloworld-py
+        repository: gcabrera82/Challenge-GKE
 
     - name: List files in the repo
       run: ls -al  # Verifica que el Dockerfile esté presente
@@ -28,7 +28,7 @@ jobs:
     - name: Configure Docker to use gcloud as a credential helper
       run: |
         gcloud auth configure-docker us-central1-docker.pkg.dev
-
+        
     - name: Build and push Docker image
       run: |
         docker build -t us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/app-helloworld-py:latest -f Dockerfile .
